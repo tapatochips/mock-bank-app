@@ -3,6 +3,18 @@ import { View, Text, Button, StyleSheet, FlatList } from 'react-native';
 import { auth } from '../firebase';
 
 //mock data for time being
+const accountData = {
+    balance: 5000.75,
+    transactions: [
+        { id: '1', date: '2024-01-01', description: 'Grocery Store', amount: -50.23 },
+        { id: '2', date: '2024-01-02', description: 'Salary', amount: 2000.00 },
+        { id: '3', date: '2024-01-03', description: 'Electricity Bill', amount: -75.00 }, 
+    ],
+};
+
+
+
+
 const Account = ({ navigation }) => {
     const [user, setUser] = useState(null);
   

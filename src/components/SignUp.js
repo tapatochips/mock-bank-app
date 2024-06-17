@@ -6,43 +6,42 @@ const SignUp = ({ navigation }) => {
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
-}
-
-//func to signup
-const handleSignUp = async () => {
-    try {
+  
+    const handleSignUp = async () => {
+      try {
         await auth.createUserWithEmailAndPassword(email, password);
-        navigation.navigate('Account');
-    } catch (error) {
-        alert(error.message);
-    }
-};
-
-return (
-    <View style={styles.container}>
-      <Text style={styles.title}>Sign Up</Text>
-      <TextInput
-        style={styles.input}
-        placeholder="Name"
-        value={name}
-        onChangeText={setName}
-      />
-      <TextInput
-        style={styles.input}
-        placeholder="Email"
-        value={email}
-        onChangeText={setEmail}
-      />
-      <TextInput
-        style={styles.input}
-        placeholder="Password"
-        secureTextEntry
-        value={password}
-        onChangeText={setPassword}
-      />
-      <Button title="Sign Up" onPress={handleSignUp} /> 
-    </View>
-  );
+        navigation.navigate('Account'); // Navigate to Account screen on success
+      } catch (error) {
+        alert(error.message); // Show error message on failure
+      }
+    };
+  
+    return (
+      <View style={styles.container}>
+        <Text style={styles.title}>Sign Up</Text>
+        <TextInput
+          style={styles.input}
+          placeholder="Name"
+          value={name}
+          onChangeText={setName}
+        />
+        <TextInput
+          style={styles.input}
+          placeholder="Email"
+          value={email}
+          onChangeText={setEmail}
+        />
+        <TextInput
+          style={styles.input}
+          placeholder="Password"
+          secureTextEntry
+          value={password}
+          onChangeText={setPassword}
+        />
+        <Button title="Sign Up" onPress={handleSignUp} /> {/* Button to trigger sign up */}
+      </View>
+    );
+  };
 
 
 const styles = StyleSheet.create({
